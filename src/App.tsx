@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { Header } from './Components/Header'
 import { Footer } from './Components/Footer'
 
-
 const App = () => {
 
   const [name, setName] = useState("Haselein")
@@ -12,17 +11,20 @@ const App = () => {
   const [bg, setBg] = useState('#FF0000')
 
 
-  // const handleClick = () => {
-  //   setBg('#0000FF')
-  // }
+  const [list, setList] = useState([
+    "O rato roue a roupa deo rei de roma",
+    "Segunda Frase"
+  ])
 
 
   const handle20 = () => {
     setAge(20)
+    setBg("#00FF00")
   }
 
   const handle90 = () => {
     setAge(90)
+    setBg("#FF0000")
   }
 
   return (
@@ -30,8 +32,24 @@ const App = () => {
 
       <Header name={name} age={age} />
 
-      <button onClick={handle20}>Tenho 20 anos</button>
-      <button onClick={handle90}>Tenho 90 anos</button>
+      {age === 90 &&
+        <button onClick={handle20}>Tenho 20 anos</button>
+      }
+
+
+      {age === 20 &&
+        <button onClick={handle90}>Tenho 90 anos</button>
+      }
+
+      <hr />
+
+      <ul>
+        {list.map((frase, index) => (
+          <li>key={index} {frase}</li>
+        ))}
+
+      </ul>
+
 
       <Footer />
 
