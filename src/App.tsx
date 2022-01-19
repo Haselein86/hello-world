@@ -35,7 +35,7 @@ const App = () => {
       {age === 90 &&
         <button onClick={handle20}>Tenho 20 anos</button>
       }
-
+      
 
       {age === 20 &&
         <button onClick={handle90}>Tenho 90 anos</button>
